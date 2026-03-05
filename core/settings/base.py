@@ -7,6 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -14,7 +15,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Third party
     'rest_framework',
     'corsheaders',
     'drf_spectacular',
@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'channels',
 
-    # Local
     'accounts',
     'chat',
 ]
@@ -141,3 +140,16 @@ SPECTACULAR_SETTINGS = {
         }
     },
 }
+
+CACHES={
+    'default':{
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': config('REDIS_URL',default='redis://127.0.0.1:6379/1'),
+        'OPTIONS':{
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
+SESSION_ENGINE='django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS='default'
