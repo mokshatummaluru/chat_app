@@ -86,8 +86,6 @@ chat_app/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml         ← GitHub Actions CI/CD
-├── Dockerfile
-├── docker-compose.yml
 ├── requirements.txt
 ├── .env
 └── manage.py
