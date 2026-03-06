@@ -1,6 +1,7 @@
 # 💬 Real-Time Chat Application
 
 A production-ready real-time chat application built with Django Channels and WebSockets, featuring JWT authentication, private and group messaging, read receipts, and Google Cloud VM deployment.
+URL:-(http://34.63.89.47:8000/api/docs/)
 
 ---
 
